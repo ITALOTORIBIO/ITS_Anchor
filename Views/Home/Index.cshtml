@@ -1,13 +1,253 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ClassroomRouteFinder AR</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    
+        <meta name="theme-color" content="#000">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <script src="js/jquery.js"></script>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166082930-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    <div>
-        <iframe src='https://webchat.botframework.com/embed/IATSBotEh?s=iKxZirMP5fc.LUzScRVgdb66juivM1_Uamb_s74G-voeFKwG2GjDGss'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>
+        gtag('config', 'UA-166082930-1');
+    </script>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                <img src="img/LogoGrupo.png" class="inicio">
+                </a>
+            </div>
+            <input type="checkbox" id="btn-menu" onclick="control()">
+            <div class="lbl-menu">
+                <label for="btn-menu">
+                <span class="icon-menu" id="linea"></span>
+                <span class="icon-equis" id="equis"></span>
+                </label>
+            </div>
+            <nav id="transition-nav" class="menu">
+                <a class="menu-selected active" onclick="cerrar()" href="#home">Inicio</a>
+                <a class="menu-selected" onclick="cerrar()" href="#servicios">Tecnologías</a>
+                <a class="menu-selected" onclick="cerrar()" href="#contacto">Sugerencias</a>
+                <a class="menu-selected" onclick="cerrar()" href="#clientes">Tutorial</a>
+                
+
+                <a class="redesociales" href="#" target="blank">
+                <img src="https://zonder.pe/img/facebook.png" ali alt="facebook">
+                </a>
+                <a class="redesociales" href="#" target="blank">
+                <img src="https://zonder.pe/img/instagram.png" alt="instagram">
+                </a>
+                <a class="redesociales" href="#" target="blank">
+                <img src="https://zonder.pe/img/wsp.png" alt="WhatsApp">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <script>
+        $(document).on('click', 'nav a', function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+    <script>
+        function cerrar(){
+            var chb =document.getElementById('btn-menu');
+            if(chb.checked){
+                $("#btn-menu").prop('checked', false); 
+            }
+        }
+    </script>
+
+
+    <div id="home">
+        <input type="radio" name="slider" id="i1" checked>
+        <input type="radio" name="slider" id="i2">
+        <input type="radio" name="slider" id="i3">
+            <div class="lbl-slider">
+            <label for="i1" class="l-slider1"></label>
+            <label for="i2" class="l-slider2"></label>
+            <label for="i3" class="l-slider3"></label>
+            </div>
+
+        <div class="portada">
+            <div class="capa">
+                <div class="contenido">
+                    <h1>¿Qué es Classroom Route Finder AR?</h1>
+                    <p>Aplicativo de ayuda para la ubicación de secciones dentro de la FIA</p>
+                    <a href="#servicios">Ver Tecnologías</a>
+                </div>
+            </div>
+        </div>
+        <div class="portada2">
+            <div class="capa">
+                <div class="contenido">
+                    <h1>¿Qué es Classroom Route Finder AR?</h1>
+                    <p>Aplicativo de ayuda para la ubicación de secciones dentro de la FIA</p>
+                    <a href="#servicios">Ver Tecnologías</a>
+                </div>
+            </div>
+        </div>
+        <div class="portada3">
+            <div class="capa">
+                <div class="contenido">
+                    <h1>¿Qué es Classroom Route Finder AR?</h1>
+                    <p>Aplicativo de ayuda para la ubicación de secciones dentro de la FIA</p>
+                    <a href="#servicios">Ver Tecnologías</a>
+                </div>
+            </div>
+        </div>
     </div>
-    
-</div>
+
+
+    <div id="servicios">
+        <div class="contenido">
+            <div class="box">
+                <figure>
+                <img src="img/App.png" alt="">
+                    <div class="info">
+                    <h2>WEB</h2>
+                    <p><b>Azure App Service</b><br>
+                    </p>
+                    </div>
+                <a href="https://docs.microsoft.com/en-us/azure/app-service/">Ver más</a>
+                </figure>
+            </div>
+            <div class="box">
+                <figure>
+                <img src="img/Anchor.png" alt="">
+                <div class="info">
+                <h2>APP</h2>
+                <p><b>Azure Spatial Anchor</b><br>
+                </p>
+                </div>
+                <a href="https://docs.microsoft.com/en-us/azure/spatial-anchors/overview">Ver más</a>
+                </figure>
+            </div>
+            <div class="box">
+                <figure>
+                <img src="img/Object.png" alt="">
+                <div class="info">
+                <h2>AR</h2>
+                <p><b style="font-size: 16px;">Azure Object Anchor</b><br>
+                </p>
+                </div>
+                <a href="https://docs.microsoft.com/en-us/azure/object-anchors/overview">Ver más</a>
+                </figure>
+            </div>
+            <div class="box-cel">
+                <figure>
+                    <img src="img/App.png" alt="">
+                </figure>
+                <figure>
+                    <div class="info-cel">
+                    <h2>WEB</h2>
+                    <p><b>Azure App Service</b><br>
+                    </p>
+                    </div>
+                <a href="https://docs.microsoft.com/en-us/azure/app-service/">Ver más</a>
+                </figure>
+            </div>
+            <div class="box-cel">
+                <figure>
+                    <img src="img/Anchor.png" alt="">
+                </figure>
+                <figure>
+                    <div class="info-cel">
+                    <h2>APP</h2>
+                <p><b>Azure Spatial Anchor</b><br>
+                </p>
+                </div>
+                <a href="https://docs.microsoft.com/en-us/azure/spatial-anchors/overview">Ver más</a>
+                </figure>
+            </div>
+            <div class="box-cel">
+                <figure>
+                    <img src="img/Object.png" alt="">
+                </figure>
+                <figure>
+                    <div class="info-cel">
+                    <h2>AR</h2>
+                <p><b style="font-size: 16px;">Azure Object Anchor</b><br>
+                </p>
+                </div>
+                <a href="https://docs.microsoft.com/en-us/azure/object-anchors/overview">Ver más</a>
+                </figure>
+            </div>
+        </div>
+        <a href="#" class="btn-servicios">Otras tecnologías</a>
+    </div>
+
+
+    <div id="contacto">
+        <div class="contenedor">
+
+            <div class="info-contacto">
+                <h2>Cuéntanos</h2>
+                <div class="contacto-num">
+                    <p>923520768</p>
+                    <p><a class="__cf_email__">italo_toribio@usmp.pe</a></p>
+                    <p><a class="__cf_email__">diego_linares3@usmp.pe</a></p>
+                </div>
+                <div class="info-contacto-cel">
+                </div>
+            </div>
+
+            <div class="formulario">
+                <form id="formulario">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" required>
+                    <label for="nombre">Apellidos</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" required>
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                    <label for="email">Celular</label>
+                    <input type="number" name="celular" id="celular" class="form-control" required>
+                    
+
+                    
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea name="mensaje" id="mensaje" class="form-control" required></textarea>
+                    <input type="submit" value="enviar" name="enviar" id="enviar">
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="clientes">
+        <div class="clientes">
+            <div class="grupo1-log">
+                <div class="log-grand">
+                    <figure>
+                    <img src="img/t.png" alt="">
+                    </figure>
+                </div>
+                <div class="mas-log">
+                <div>
+                <figure>
+                <img src="img/marcus.png" alt="">
+                </figure>
+                <figure>
+                
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/header.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/CAPTCHA.js"></script>
+    <script src="js/closemenu.js"></script>
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0548'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>

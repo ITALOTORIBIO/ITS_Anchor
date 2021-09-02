@@ -1,71 +1,983 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿/*Montserrat - 900*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+/*Montserrat - 400*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@font-face {
+    font-family: dashboard;
+    src: url(../font/Dashboard-Regular.ttf);
+}
+@font-face {
+    font-family: gil-regular;
+    src: url(../font/Gilroy-Regular.woff);
+}
+@font-face {
+    font-family: gil-bold;
+    src: url(../font/Gilroy-Bold.woff);
+}
+@font-face {
+    font-family: adineue-bold;
+    src: url(../font/Fuentes/adineuePRO-Bold_0.otf);
+}
+@font-face {
+    font-family: adineue-black;
+    src: url(../font/Fuentes/adineuePRO-Black_0.otf);
+}
+@font-face {
+    font-family: adineue-light;
+    src: url(../font/Fuentes/adineuePRO-Light_0.otf);
+}
+@font-face {
+    font-family: adineue-regular;
+    src: url(../font/Fuentes/adineuePRO-Regular_0.otf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+    --fondo-negro:#000;
+}
+*::selection{
+    background: rgba(0,0,0,0.1);
+}
+html{
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+    background: #000;
+}
+body::-webkit-scrollbar-thumb{
+    background: #2f2f2f;
+}
+/*Hablemos - Facebook - Wsp*/
+/*-- ActualizaciÃ³n 2.5: Se corrigiÃ³ a una posiciÃ³n correcta que no choca con los controladores del Slider (30-08-2020)(12:35pm)--*/
+/*
+#hablemos{
+    position: fixed;
+    z-index: 10;
+    right: 30px;
+    bottom: 0%;
+    text-align: center;
+    background: var(--fondo-negro);
+    color: #fff;
+    padding: 20px 5px 0px 5px;
+    border-radius: 20px 20px 0px 0px;
+    width: 130px;  
+}
+#hablemos a{
+    text-decoration: none;
+    display: inline-block;
+    width: 40px;
+    height: 60px;
+}
+#hablemos img{
+    width: 45px;
+    height: 40px;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+@media only screen and (min-width:320px) and (max-width:768px){
+    #hablemos{
+        
+            position: fixed;
+            z-index: 10;
+            right: 15px;
+            bottom: 0%;
+            text-align: center;
+            background: var(--fondo-negro);
+            color: #fff;
+            padding: 20px 5px 0px 5px;
+            border-radius: 20px 20px 0px 0px;
+            width: 96px;  
+            height: 80px;
+            align-content: center;
+        }
+        #hablemos p{
+            font-size: 13px;
+        }
+        #hablemos a{
+            text-decoration: none;
+            display: inline-block;
+            width: 20px;
+            height: 30px;
+        }
+        #hablemos img{
+            width: 32px;
+            height: 29px;
+        }
+    
+}
+/*Fin de Hablemos - Facebook - Wsp*/
+
+/*Estilos header(Encabezado)*/
+/*-- VersiÃ³n 2.5 : Se ajustÃ³ el logo a una posiciÃ³n correcta (30-08-2020)(12:00pm)-- */
+#header{
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    background: rgba(0,0,0,0.0);
+    overflow: hidden;
+    z-index: 100;
+    transition: all 400ms ease;
+}
+#header .container{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+#header .logo{
+    float: left;
+    line-height: 155px;
+    transition: all 400ms ease;
+}
+#header .container .logo .inicio{
+    height: 40px;
+    width: 165px;
+}
+#header .logo a{
+    display:inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 21px;
+}
+#header .menu{
+    float: right;
+    line-height: 150px;
+    transition: all 400ms ease;
+}
+#header .menu a{
+    position: relative;
+    display: inline-block;
+    padding: 10px 0px;
+    margin-right: 40px;
+    line-height: normal;
+    text-decoration: none;
+    color: #fff;
+    transition: all 400ms ease;
+    
+}
+#header .menu .redesociales{
+    top: 4px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 0px;
+    margin-right: 30px;
+    line-height: normal;
+}
+#header .menu .redesociales img{
+    height: 20px;
+   
+}
+.menu-selected:before{
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 2px;
+    background: #fff;
+    bottom: 3px;
+    left: 45%;
+    transition: all 300ms ease-out;
+}
+.menu-selected.active:before{
+    width: 80%;
+    left: 10%;
+}
+.menu-selected:hover:before{
+    left: 0%;
+    width: 100%;
+}
+/*Boton-Menu -Responsive*/
+#btn-menu{
+    display: none;
+}
+#header .lbl-menu{
+    float: right;
+    line-height: 75px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+#header .lbl-menu .icon-equis{
+    display: none;
+    font-size: 34px;
+}
+/*-- VersiÃ³n 2.5 : Se ajustÃ³ el logo a una posiciÃ³n correcta (30-08-2020)(12:00pm)-- */
+/*-- VersiÃ³n 2.5 : Se ajustaron los items del menÃº al centro (30-08-2020)(12:50pm)-- */
+@media only screen and (min-width:320px) and (max-width:768px){
+    #header{
+        height: 59px;
+    }
+    #header .logo{
+        line-height: 90px;
+    }
+    #header .container{
+        width: 90%;
+    }
+    #header .lbl-menu{
+        display: inline-block;
+    }
+    #btn-menu:checked~.lbl-menu .icon-menu{
+        display: none;
+    }
+    #btn-menu:checked~.lbl-menu .icon-equis{
+        display:contents;
+    }
+    #header .menu{
+    position: fixed;
+    width: 100%;
+    background: var(--fondo-negro);
+    top: 70px;left: 0;
+    height: 0px;
+    overflow: hidden;
+    }
+    #btn-menu:checked~.menu{
+        height: 100vh;
+    }
+    #header .menu a{
+        display: block;
+        margin: 0;
+        padding: 20px;
+        border-top: 1px solid #1c1c1c;
+        text-align-last: center;
+    }
+    #header .menu .redesociales{
+        display: block;
+        margin: 0;
+        padding: 20px;
+        border-top: 1px solid #1c1c1c;
+        text-align-last: center;
+    }
+    #header .container .logo .inicio{
+        height: 50%;
+        width: 70%;
+    }
+}
+/*Fin de Boton-Menu -Responsive*/
+
+/*Header-Scroll*/
+#header.enca{
+    height: 100px;
+    background: #000;
+}
+#header.enca .logo{
+    line-height: 110px;
+}
+#header.enca .menu{
+    line-height: 100px;
+}
+/*-- VersiÃ³n 2.5 : Se ajustÃ³ el logo a una posiciÃ³n correcta (30-08-2020)(12:00pm)-- */
+@media only screen and (min-width:320px) and (max-width:768px){
+    #header.enca{
+        height: 70px;
+    }
+    #header.enca .logo,
+    #header.enca .menu{
+    line-height: 90px;
+    }
+}
+/*Fin Header-Scroll*/
+/*Fin de Estilos - header(Encabezado)*/
+
+/*Estilos Slider (Portada)*/
+#home{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+}
+.portada{
+    width: 100%;
+    height: 100vh;
+    background: url("../img/portada.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 400ms ease;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+#i1:checked~.portada{
+    opacity: 1;
+    visibility: visible;
+}
+.portada2{
+    width: 100%;
+    height: 100vh;
+    background: url("../img/portada2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 400ms ease;
+    opacity: 0;
+    visibility: hidden;
+   
+}
+#i2:checked~.portada2{
+    opacity: 1;
+    visibility: visible;
+}
+.portada3{
+    width: 100%;
+    height: 100vh;
+    background: url("../img/portada3.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 400ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+#i3:checked~.portada3{
+    opacity: 1;
+    visibility: visible;
+}
+.capa{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.capa .contenido{
+    text-align: center;
+}
+.capa .contenido h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-family: dashboard;
+}
+.capa .contenido p{
+    color: #c7c7c7;
+    font-size: 18px;
+}
+.capa .contenido a{
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 40px;
+    background: var(--fondo-negro);
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    transition: all 400ms ease;
+}
+.capa .contenido a:hover{
+    background: #fff;
+    color: #000;
+}
+#i1,#i2,#i3{
+    display: none;
+}
+.lbl-slider{
+    position: absolute;
+    z-index: 10;
+    bottom: 7%;
+    left: 47%;   
+}
+.lbl-slider label{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border:2px solid #989898;
+    background: #000000;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.lbl-slider label:hover{
+    background: #989898;
+}
+.lbl-slider .l-slider1{
+    margin-left: 15px;
+}
+#i1:checked~.lbl-slider .l-slider1,
+#i2:checked~.lbl-slider .l-slider2,
+#i3:checked~.lbl-slider .l-slider3{
+    background: #989898;
+    border:2px solid #c7c7c7;
+}
+.lbl-slider .l-slider2{
+    margin-left: 36px;
+}
+.lbl-slider .l-slider3{
+    margin-left: 57px;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+    .capa .contenido{
+        width: 90%;
+    }
+    .portada{
+        background: url("../img/Responsive/portada.jpg");
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+    }
+    .portada2{
+        background: url("../img/Responsive/portada2.jpg");
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+    }
+    .portada3{
+        background: url("../img/Responsive/portada3.jpg");
+        background-repeat: no-repeat;
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+    }
+    .capa .contenido h1{
+    font-size: 37px;
+    margin-bottom: 10px;
+}
+    .lbl-slider{
+    bottom: 10%;
+    left: 38%;
+}
+}
+/*Fin de Estilos - Slider (Portada)*/
+
+/*Estilos - Servicios(Nuestros Servicios)*/
+#servicios{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: var(--fondo-negro);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#servicios .contenido{
+    width: 100%;
+    max-width: 1020px;
+    display: flex;
+}
+#servicios .contenido .box{
+    width: 295px;
+    position: relative;
+    margin: 22px;
+    transition: all 400ms ease-out;
+    border: 2px solid transparent;
+    overflow: hidden;
+    text-align: center;
+    cursor: default;
+}
+#servicios .contenido .box:hover{
+    border: 2px solid #fff;
+}
+#servicios .contenido .box figure{
+    width: 295px;
+    height: 350px;
+    overflow: hidden;
+}
+#servicios .contenido .box figure img{
+    width: 100%;
+    height: 100%;
+    transition: all 400ms ease;
+}
+#servicios .contenido .box:hover.box figure img{
+    transform: scale(1.2);
+}
+#servicios .contenido .box figure a{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    bottom: 30px;
+    left: 24%;
+    text-decoration: none;
+    color: #fff;
+    background: var(--fondo-negro);
+    font-size: 14px;
+    transition: all 400ms ease;
+}
+#servicios .contenido .box:hover.box figure a{
+    background: #fff;
+    color: #000;
+}
+#servicios .contenido .box .info{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    transition: all 400ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+#servicios .contenido .box:hover.box .info{
+    opacity: 1;
+    visibility: visible;
+}
+#servicios .contenido .box .info h2{
+    color: #fff;
+    font-size: 25px;
+    transition: all 400ms ease-out;
+    margin-bottom: 50px;
+    font-family: adineue-black;
+}
+#servicios .contenido .box:hover.box .info h2{
+    margin-bottom: 8px;
+    font-family: adineue-black;
+}
+#servicios .contenido .box .info p{
+    width: 100%;
+    max-width: 200px;
+    color: #c7c7c7;
+    line-height: 1.4;
+    font-size: 15px;
+    font-family: adineue-light;
+    letter-spacing: 1px;
+}
+#servicios .contenido .box .info p b{
+    color: #fff;
+    font-family: adineue-bold;
+    letter-spacing: 1px;
+    font-size: 17px;
+}
+#servicios .btn-servicios{
+    position: absolute;
+    font-size: 14px;
+    bottom: 9%;
+    display: inline-block;
+    padding: 10px 17px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    transition: all 400ms ease;
+}
+#servicios .btn-servicios:hover{
+    background: #fff;
+    color: #000;
+}
+.box-cel{
+    display: none;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+@media only screen and (min-width:320px) and (max-width:768px){
+    #servicios{
+    width: 100%;
+    height: 612px;
+    }
+    #servicios .contenido{
+    width: 80%;
+    display: grid;
+        grid-template-columns: repeat(1 , 1fr);
 }
+#servicios .contenido .box-cel{
+    width: 106%;
+    margin: 0;
+    margin-top: 15px;
+    
+}
+    .box{
+        display: none;
+    }
+    .box-cel{
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+    }
+    .box-cel figure img{
+        width: 90%;
+        height: 135px;
+        object-fit: cover;
+    }
+    .box-cel .info-cel{
+        color: #fff;
+    }
+    #servicios .btn-servicios {
+        position: absolute;
+        font-family: gil-bold;
+        font-size: 14px;
+        bottom: 5%;
+        display: inline-block;
+        padding: 10px 17px;
+        border: 2px solid #fff;
+        background-color: #fff;
+        color: black;
+        text-decoration: none;
+        transition: all 400ms ease;
+    }
+    #servicios .contenido .box-cel figure a{
+        text-decoration: none;
+        padding: 3px 15px;
+        bottom: 5%;
+        font-family: gil-bold;
+        color: #fff;
+        font-size: 12px;
+        border: 1px solid white;
+    }
+    #servicios .contenido .box-cel .info-cel h2{
+        color: #fff;
+        letter-spacing: 1px;
+        font-size: 25px;
+        font-family: adineue-bold;
+    }
+    #servicios .contenido .box-cel .info-cel p b {
+        color: #fff;
+        font-size: 12px;
+        font-family: adineue-bold;
+    }
+    #servicios .contenido .box-cel .info-cel p {
+        color: #fff;
+        font-size: 12px;
+    }
+}
+/*Fin Estilos - Servicios(Nuestros Servicios)*/
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+/*Estilos clientes - Zonder*/
+#clientes{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("../img/tut.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+#clientes:after{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: '';
+    top: 0;left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 0;
+}
+.clientes{
+    width: 100%;
+    max-width: 1100px;
+    z-index: 1;
+    text-align: center;
+}
+.clientes .grupo1-log,
+.clientes .grupo2-log,
+.clientes .grupo3-log,
+.clientes .grupo4-log{
+    width: 100%;
+    display: flex;
+}
+.clientes .grupo1-log .log-grand{
+    width: 43%;
+}
+.clientes .grupo1-log .log-grand figure{
+    width: 450px;
+}
+.clientes .grupo1-log .log-grand figure img{
+    width: 100%;
+    margin-top: 25px;
+}
+.clientes .grupo1-log .mas-log figure img{
+    width: 80%;
+    display: flex;
+    margin-left: 25px;
+}
+.clientes .grupo2-log img{
+    width: 70%;
+    margin-top: 20px;
+}
+.clientes .grupo3-log img{
+    width: 70%;
+    margin-top: 20px;
+}
+.clientes .grupo4-log img{
+    width: 70%;
+    margin-top: 20px;
+}
+.clientes .grupo1-log .mas-log{
+    width: 100%;
+}
+.clientes .grupo1-log .mas-log div{
+    width: 100%;
+    display: flex;
+}
+.clientes .grupo1-log .mas-log div figure{
+    width: 100%; 
+    margin-right: 1px;
+}
+.clientes .grupo2-log figure,
+.clientes .grupo3-log figure,
+.clientes .grupo4-log figure{
+    width: 100%;    
+}
+.titulo-cel,
+.grupo1-cel{
+    display: none;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+    #clientes{
+        background: url("../img/Responsive/tut.jpg");
+        width: 100%;
+        height: 700px;
+    }
+    .clientes{
+        width: 90%;
+    }
+    .clientes .grupo1-log,
+    .clientes .grupo2-log,
+    .clientes .grupo3-log,
+    .clientes .grupo4-log{
+        display: none;
+}
+.titulo-cel{
+    display: flex;
+}
+.log-cel{
+    width: 65%;
+    display: flex;
+}
+.log-cel figure{
+    width: 450px;
+}
+.log-cel figure img{
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 18px;
+}
+.cel-log figure img{
+    width: 70%;
+    margin-left: -5px;
+    margin-top: 14px;
+}
+    .grupo1-cel{
+        display: grid;
+        grid-template-columns: repeat(3 , 1fr);
+    }
+    .grupo1-cel figure img{
+        width: 70%;
+    }
+}
+/*Fin de Estilos clientes - Zonder*/
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
+/*Estilos Contactanos - Zonder*/
+#contacto{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: var(--fondo-negro);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+#contacto .contenedor{
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
 }
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
+#contacto .contenedor .info-contacto{
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
 }
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+#contacto .contenedor .info-contacto h2{
+    font-size: 55px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+    margin-left: -42px;
+    font-family: dashboard;
 }
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+#contacto .contenedor .info-contacto .contacto-num{
+    width: 100%;
+    max-width: 300px;
 }
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+#contacto .contenedor .info-contacto p{
+    line-height: 2;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+#contacto .contenedor .formulario{
+    width: 100%;
+    background: #fff;
+    margin-top: 90px;
+    max-width: 550px;
 }
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+#contacto .contenedor #formulario{
+    padding: 40px 45px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+#contacto .contenedor #formulario label{
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12px;
+}
+#contacto .contenedor #formulario #nombre,
+#contacto .contenedor #formulario #email,
+#contacto .contenedor #formulario #celular,
+#contacto .contenedor #formulario #presupuesto{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 33px;
+    border: 1px solid #6f6f6f;
+    outline: 0px;
+    padding: 10px;
+}
+#contacto .contenedor .info-contacto-cel p{
+    display: none;
+}
+#contacto .contenedor #formulario #presupuesto{
+    padding:0px 10px;
+    background:#fff;
+}
+#server1, #server2,
+#server3, #server4{
+    display: none;
+}
+/*Cabia a otro color - Click*/
+#contacto #server1:checked ~ .server-form .lbl-server1{
+    background: #000;
+    color: #fff;
+}
+#contacto #server2:checked ~ .server-form .lbl-server2{
+    background: #000;
+    color: #fff;
+}
+#contacto #server3:checked ~ .server-form .lbl-server3{
+    background: #000;
+    color: #fff;
+}
+#contacto #server4:checked ~ .server-form .lbl-server4{
+    background: #000;
+    color: #fff;
+}
+/*Click-Color*/
+#contacto .contenedor #formulario .server-form{
+    margin-bottom: 10px;
+}
+#contacto .contenedor #formulario .server-form label{
+    display: inline-block;
+    width: 100px;
+    height: 33px;
+    line-height: 33px;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    border: 1px solid #000;
+    margin: auto 3px ;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+#contacto .contenedor #formulario #mensaje{
+    width: 100%;
+    min-width: 440px;
+    min-height: 60px;
+    max-width: 440px;
+    max-height: 60px;
+    border: 1px solid #6f6f6f;
+    outline: 0px;
+    padding: 10px;
+}
+#contacto .contenedor #formulario #enviar{
+    width: 100%;
+    margin-top: 8px;
+    height: 50px;
+    font-size: 20px;
+    background: var(--fondo-negro);
+    border:none;
+    outline: 0px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+#contacto .contenedor #formulario #enviar:hover{
+    opacity: 0.9;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+    body{
+        background: var(--fondo-negro);
+    }
+    #contacto{
+        width: 100%;
+        height: 100%;
+        border-top:none;
+    }
+    #contacto .contenedor{
+        width: 90%;
+        flex-wrap: wrap;
+    }
+    #contacto .contenedor .info-contacto{
+        margin-right: 0;
+    }
+    #contacto .contenedor .info-contacto h2{
+        font-size: 29px;
+        margin-top: 76px;
+        margin-bottom: 2px;
+        margin-left: 1px;
+    }
+    #contacto .contenedor .info-contacto-cel p{
+        display: contents;
+        line-height: 2;
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+    #contacto .contenedor .info-contacto .contacto-num p{
+        display: none;
+    }
+    #contacto .contenedor #formulario #mensaje{
+        min-width: 100%;
+    }
+    #contacto .contenedor #formulario #enviar{
+        width: 86%;
+    margin-top: 7px;
+    height: 50px;
+    font-size: 18px;
+    background: var(--fondo-negro);
+    border: none;
+    outline: 0px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 400ms ease;
+    margin-left: 20px;
+    }
+    #contacto .contenedor .formulario{
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+    #contacto .contenedor #formulario{
+    padding: 17px;
+}
+    #contacto .contenedor #formulario .server-form{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    #contacto .contenedor #formulario .server-form label{
+        width: 110px;
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+    #contacto .contenedor #formulario label{
+        font-size: 15px;
+        margin-bottom: 7px;
+    }
+/*Fin Estilos Contactanos - Zonder*/
 }
